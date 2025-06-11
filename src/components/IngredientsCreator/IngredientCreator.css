@@ -1,0 +1,45 @@
+.buttons {
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: auto;
+    width: 100%;
+}
+
+.create-ingredient {
+    width: calc(100% - 20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    font-size: 14px;
+    gap: 0.25rem;
+}
+
+.create-ingredient label {
+    left: 0;
+}
+
+.create-ingredient .form-title {
+    text-align: center;
+    font-size: 14px;
+    max-width: 10rem;
+}
+
+.create-ingredient:hover {
+    cursor: pointer;
+}
+.delete-ingredient:hover {
+    cursor: pointer;
+}
+
+.ingredients-grow {
+    display: flex;
+    flex: 0.25;
+    width: 100%;
+}

@@ -4,9 +4,9 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 export const getIngredients = async () => {
     const res = await fetch(`${API_URL}/ingredients`);
-    if(!res.ok) throw new Error("Failed to fetch Ingredients");
+    if (!res.ok) throw new Error("Failed to fetch Ingredients");
     const result: Ingredient[] = await res.json();
-    return result;
+    return result || [];
 }
 
 export const createIngredient = async (ingredient: CreateIngredientsDto) => {
@@ -16,7 +16,18 @@ export const createIngredient = async (ingredient: CreateIngredientsDto) => {
         headers: {"Content-Type": "application/json"}
     });
 
-    if(!res.ok) throw new Error("Failed to create Ingredient");
+    if (!res.ok) throw new Error("Failed to create Ingredient");
     const result: Ingredient = await res.json();
     return result;
+}
+
+export const deleteIngredient = async (ingredientId: number) => {
+    const res = await fetch(`${API_URL}/ingredient/${ingredientId}`, {
+        method: "DELETE",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ingredientId})
+    });
+
+    if (!res.ok) throw new Error("Failed to delete Ingredient");
+    console.log("Removed Ingredient with id: " + ingredientId);
 }
