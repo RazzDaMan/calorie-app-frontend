@@ -7,8 +7,10 @@ function App() {
     return (
         <div className="ingredients-section">
             <IngredientsProvider>
-                <IngredientsWindow></IngredientsWindow>
-                <IngredientCreator></IngredientCreator>
+                <div className="ingredients-section">
+                    <IngredientsWindow></IngredientsWindow>
+                    <IngredientCreator></IngredientCreator>
+                </div>
             </IngredientsProvider>
         </div>
     )
